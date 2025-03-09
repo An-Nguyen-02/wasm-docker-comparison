@@ -1,0 +1,22 @@
+# Use the official Rust image as the base
+FROM rust:latest
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the Rust project files to the container
+COPY . .
+
+# Build the Rust application
+RUN cargo build --release
+
+# Run the Rust application
+CMD ["./target/release/my_experiment"]
+
+# Docker command: docker build -t my-rust-app .
+# Build: docker build --no-cache -t my-rust-app .
+# Run: docker run -it --rm my-rust-app
+# Run normal rust: cargo run 
+
+# Find task: netstat -ano | findstr :8888
+# Kill task: taskkill /PID <PID> /F
