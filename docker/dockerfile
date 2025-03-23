@@ -15,7 +15,7 @@ CMD ["./target/release/my_experiment"]
 
 # Docker command: docker build -t my-rust-app .
 # Build: docker build --no-cache -t my-rust-app .
-# Run: docker run -it --rm my-rust-app
+# Run: (Measure-Command { docker run -it --rm my-rust-app }).TotalSeconds
 # Run normal rust: cargo run 
 
 # Find task: netstat -ano | findstr :8888

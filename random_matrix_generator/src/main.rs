@@ -10,8 +10,7 @@ struct MatrixPair {
 }
 
 fn main() {
-    // Define the matrix size (500 or 1000 for large sizes)
-    let size = 1000;
+    let size = 1500;
 
     // Generate the random matrices
     let matrices = generate_matrix_pair(size);
