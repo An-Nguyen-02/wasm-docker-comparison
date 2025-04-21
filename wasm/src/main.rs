@@ -37,13 +37,14 @@ fn main() {
 
     let total_time = start_total.elapsed();
     // Print timing results
-
     println!("Disk Read Time: {:.5} s", read_time.as_secs_f64());
     println!("Computation Time: {:.5} s", compute_time.as_secs_f64());
     println!("Result Write Time: {:.5} s", result_write_time.as_secs_f64());
     println!("Total Execution Time: {:.5} s", total_time.as_secs_f64());
+    println!("Memory allocated (MB): {:.5} MB", core::arch::wasm32::memory_size(0) as f64 * 0.0625);
     println!("Matrix processing completed. Results written to 'result.json'.");
 }
+
 
 fn write_result_to_file(filename: &str, data: &Vec<Vec<f64>>) -> std::io::Result<()> {
     let mut file = File::create(filename)?;
