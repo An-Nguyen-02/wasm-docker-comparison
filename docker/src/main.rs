@@ -20,10 +20,10 @@ fn main() {
 
     // Start system measurement for CPU and memory usage
     let start_sys = Instant::now();
-    sys.refresh_process(pid);
-    let process = sys.process(pid).expect("Failed to get process info");
-    let initial_cpu = process.cpu_usage();
-    let initial_memory = process.virtual_memory();
+    // sys.refresh_process(pid);
+    // let process = sys.process(pid).expect("Failed to get process info");
+    // let initial_cpu = process.cpu_usage();
+    // let initial_memory = process.virtual_memory();
     let sys_init_time = start_sys.elapsed();
 
     // Start reading matrix from file
@@ -56,9 +56,9 @@ fn main() {
     let final_cpu = process.cpu_usage();
     let final_memory = process.virtual_memory();
 
-    let cpu_usage = final_cpu - initial_cpu;
-    let memory_used_b = final_memory.saturating_sub(initial_memory);
-    let memory_used_mb = memory_used_b as f64 / (1024.0 * 1024.0);
+    let cpu_usage = final_cpu;
+    let memory_used_b = final_memory;
+    let memory_used_mb = memory_used_b as f64 / (1000.0 * 1000.0);
     let sys_init_time1 = start_sys1.elapsed();
     
     // Print results
